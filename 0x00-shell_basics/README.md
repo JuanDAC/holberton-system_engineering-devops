@@ -85,7 +85,7 @@ mkdir /tmp/holberton/
 #!/bin/bash
 mv /tmp/betty /tmp/holberton/
 ```
-
+**8-firstdelete**
 ```
 #!/bin/bash
 rm /tmp/holberton/betty
