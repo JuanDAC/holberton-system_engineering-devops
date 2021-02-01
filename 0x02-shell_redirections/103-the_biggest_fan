@@ -1,0 +1,2 @@
+#!/bin/bash
+tail --lines=+2 | cut --fields=1 | sort | uniq --count | sort --numeric-sort --reverse | head --lines=11 | cut --count 9- 
