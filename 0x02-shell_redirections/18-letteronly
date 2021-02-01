@@ -1,2 +1,2 @@
 #!/bin/bash
-grep ^[[a-zA-Z]]* /etc/ssh/ssh
+grep ^[a-Z] /etc/ssh/ssh
