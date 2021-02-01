@@ -1,2 +1,2 @@
 #!/bin/bash
-cat | tail --lines=+2 | cut -f1 | sort | uniq -c | sort --numeric-sort --reverse | head --lines=11 | cut -d" " -f1 | rev
+cat | tail --lines=+2 | cut -f1 | sort | uniq -c | sort --numeric-sort --reverse | head --lines=11 | rev | cut -d" " -f1 | rev
