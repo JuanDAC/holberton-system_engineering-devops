@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(cut --check=1 | tr --delete '\n')
+echo $(cut -c 1 | tr --delete "\n")
