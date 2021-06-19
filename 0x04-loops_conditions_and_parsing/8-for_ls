@@ -2,6 +2,6 @@
 # Write a Bash script that displays the content of the current directory
 
 LS=$(ls)
-for item in $LS ; do
-	echo "$item"
+for item in $LS; do
+	echo "$item" | cut --delimiter="-" --fields=2
 done
