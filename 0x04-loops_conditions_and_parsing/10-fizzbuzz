@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Write a Bash script that displays the time for 12 hours and 59 minutes
+
+FizzBuzz() {
+	local number="$1"
+
+	if [ "$number" -eq 101 ]; then
+		return
+	fi
+
+	if [ $((number % 5)) -eq 0 ] && [ $((number % 3)) -eq 0 ]; then
+		echo "FizzBuzz"
+	elif [ $((number % 3)) -eq 0 ]; then
+		echo "Fizz"
+	elif [ $((number % 5)) -eq 0 ]; then
+		echo "Buzz"
+	else
+		echo "$number"
+	fi
+
+	FizzBuzz $((number + 1))
+}
+
+FizzBuzz 1

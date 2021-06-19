@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Holberton School 10 times, but for the 9th iteration, displays Holberton School and then Hi on a new line.
+
+exists=$(find . -maxdepth 1 -name holbertonschool)
+file=$(find . -maxdepth 1 -name holbertonschool -type f)
+file_empty=$(find . -maxdepth 1 -name holbertonschool -type f -empty)
+
+if [[ -n "$exists" ]]; then
+	echo "holbertonschool file exists"
+	if [[ -n "$file_empty" ]]; then
+		echo "holbertonschool file is empty"
+	else
+		echo "holbertonschool file is not empty"
+	fi
+	if [[ -n "$file" ]]; then
+		echo "holbertonschool is a regular file"
+	fi
+else
+	echo "holbertonschool file does not exist"
+fi
+
