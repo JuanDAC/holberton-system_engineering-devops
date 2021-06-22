@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Write a Bash script that displays its own PID.
+
+kill $(pgrep -f "bash 4-to_infinity_and_beyond")
+
