@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Testing
+
+if [[ $# -eq 1 ]]; then
+	ping -c 5 "${1}"
+else
+	echo "Usage: $(basename "${0}") {IP_ADDRESS}"
+fi
+
