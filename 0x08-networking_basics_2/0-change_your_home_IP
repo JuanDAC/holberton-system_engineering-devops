@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#add localhost to 127.0.0.2
+tmpFile="/tmp/host.new"
+
+cp /etc/hosts $tmpFile
+sed -i '1s/^/127.0.0.2 localhost\n/' $tmpFile
+sed -i '1s/^/8.8.8.8 facebook.com\n/' $tmpFile
+cp -f $tmpFile /etc/hosts
