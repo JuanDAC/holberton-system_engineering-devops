@@ -1,0 +1,35 @@
+
+
+main {
+	margin: unset;
+}
+
+.menu {
+	min-width: 90vmin;
+}
+
+.slider {
+	width: calc(100vw - 40px);
+	margin: 20px 20px 0px 20px;
+	scroll-behavior: smooth;
+	overflow-x: auto;
+	white-space: nowrap;
+	overscroll-behavior: contain;
+	scroll-snap-type: x mandatory;
+	overflow-y: hidden;
+	box-shadow: 0px 0px 0px 1px #ecc9c7;
+	border-radius: 4px;
+
+}
+
+.canvas {
+	scroll-snap-align: center;
+	width: calc(100vw - 40px);
+	display: inline-block;
+	background-image: var(--url);
+	background-repeat: no-repeat;
+	height: calc((899 / 1599) * (100vw - 40px) * 0.8);
+	background-size: 80%;
+	background-position: center;
+}
+
