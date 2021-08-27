@@ -14,11 +14,11 @@ fi
 $SU apt-get update
 $SU apt-get -y install nginx
 
-nginx -v 1> "$TMP_FILE" 2> /dev/null
+nginx -v 2> "$TMP_FILE" 1> /dev/null
 
-if [[ -n "$(cat $TMP_FILE)" ]]; then
-	SU=""
+if [[ "$(wc --lines -- $TMP_FILE)" -eq 1 ]]; then
 	$SU rm /var/www/html/*
-	echo "Holberton School" | sudo tee /var/www/html/index.html
+	$SU echo "Holberton School" | sudo tee /var/www/html/index.html
 	$SU service nginx restart
 fi
+$SU rm "$TMP_FILE"
