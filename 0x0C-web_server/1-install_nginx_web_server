@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Install Nginx web server
+
+SU=$(whoami)
+TMP_FILE="tmp_version"
+
+if [[ "$SU" == "root" ]]; then
+	SU="sudo"
+else
+	SU=""
+fi
+
+
+$SU apt-get update
+$SU apt-get -y install nginx
+
+nginx -v 1> "$TMP_FILE" 2> /dev/null
+
+if [[ -n "$(cat $TMP_FILE)" ]]; then
+	SU=""
+	$SU rm /var/www/html/*
+	echo "Holberton School" | sudo tee /var/www/html/index.html
+	$SU service nginx restart
+fi
