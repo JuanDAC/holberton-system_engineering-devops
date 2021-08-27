@@ -15,7 +15,7 @@ $SU apt-get -y install nginx
 
 nginx -v 2> "$TMP_FILE" 1> /dev/null
 
-if [[ "$(wc --lines -- $TMP_FILE)" -eq 1 ]]; then
+if [[ "$(wc --lines -- $TMP_FILE | cut --fields=1 --delimiter=" ")" -eq 1 ]]; then
 	$SU rm /var/www/html/*
 	$SU echo "Holberton School" | sudo tee /var/www/html/index.html
 	$SU service nginx restart
