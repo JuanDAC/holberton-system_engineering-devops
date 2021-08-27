@@ -10,7 +10,6 @@ else
 	SU=""
 fi
 
-
 $SU apt-get update
 $SU apt-get -y install nginx
 
