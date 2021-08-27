@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Using what you did for task #0, make your fix short and sweet.
+
+SU=$(whoami)
+
+if [[ "$SU" == "root" ]]; then
+	SU="sudo"
+else
+	SU=""
+fi
+
+$SU sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+$SU pkill --signal SIGHUP nginx
