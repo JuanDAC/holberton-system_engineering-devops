@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Script that configures ufw firewall
+
+# Install ufw
+sudo apt-get update -y
+sudo apt-get install ufw -y
+
+# Config ufw
+sudo ufw disable
+sudo ufw default deny incoming
+sudo ufw allow 22
+sudo ufw allow 443
+sudo ufw allow 80
+
+# Run configures of ufw
+sudo ufw enable
