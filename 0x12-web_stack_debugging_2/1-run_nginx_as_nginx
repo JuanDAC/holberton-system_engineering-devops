@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Run Nginx as Nginx with listen to port 8080.
+
+SU=$(whoami)
+FROM='80'
+TO='8080'
+DIRNGINX='/etc/nginx/'
+
+if [[ "$SU" == "root" ]]; then
+	SU="sudo"
+else
+	SU=""
+fi
+
+$SU chown -R nginx:nginx "$DIRNGINX"
+
+$SU chmod 644 "${DIRNGINX}nginx.conf"
+
+$SU sed -i "s/$FROM/$TO/" "${DIRNGINX}sites-available/default"
+
+$SU pkill apache2
+
+$SU -u nginx service nginx start
