@@ -24,15 +24,14 @@ if __name__ == "__main__":
     users_2_dict = {}
     i = 0
     for user in users:
-        users_2_dict[user.get('id')] = []
-        while(i < len(todos)):
-            if todos[i].get('userId') == user.get('id'):
-                task_2_dict = {}
-                task_2_dict['username'] = user.get('username')
-                task_2_dict['task'] = todos[i].get('title')
-                task_2_dict['completed'] = todos[i].get('completed')
-                users_2_dict[user.get('id')].append(users_2_dict)
-                i += 1
+        id_user = user.get('id')
+        users_2_dict[id_user] = []
+        user_tacks = [{"task": task.get('title'),
+                      "completed": task.get('completed'),
+                      "username": user.get("username")}
+                     for task in todos if id_user == task.get("userId")]
+        users_2_dict[id_user] = user_tacks
 
-    with open('todo_all_employees.json', "w") as file:
+
+    with open('todo_all_employees.json', "w", newline="") as file:
         json.dump(users_2_dict, file)
