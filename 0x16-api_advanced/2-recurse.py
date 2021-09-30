@@ -4,30 +4,25 @@ Module for storing the recurse function.
 """
 import requests
 
+get requests.get
 url = 'https://www.reddit.com/'
 headers = requests.utils.default_headers()
 headers.update({
     'User-Agent': 'Custom User Agent 1.0.1',
     "Content-Type": "application/json",
 })
-
-
 query = {'limit': 100, 'after': after, }
+
 
 def recurse(subreddit, hot_list=[], after=None):
     """
     Returns a list with all of the hot articles on a given subbreddit.
-    """ 
+    """
     path = 'r/{}/hot/.json'.format(subreddit)
     url = "{}{}".format(url, path)
 
     # get info of the subreddit
-    response = requests.get(
-        url,
-        allow_redirects=False,
-        params=query,
-        headers=headers
-    )
+    response = get(url, allow_redirects=False, params=query, headers=headers)
 
     if response.status_code == 200:
         data = response.json()
