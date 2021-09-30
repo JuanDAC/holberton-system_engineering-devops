@@ -3,9 +3,9 @@
 Module for storing the top_ten function.
 """
 
-from requests import get
+import requests 
 
-
+get = requests.get
 headers = requests.utils.default_headers()
 headers.update({'User-Agent': 'My User Agent 1.0', })
 query = {'limit': 10}
