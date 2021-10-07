@@ -1,0 +1,39 @@
+# Let's do this for your API
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location /airbnb-onepage {
+		alias ~/AirBnB_clone_v2/;
+		proxy_pass http://127.0.0.1:5000;
+	}
+
+	location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+		proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;	
+	}
+
+	location /api {
+		proxy_pass http://127.0.0.1:5002/api;
+	}
+
+	add_header X-Served-By 2917-web-01;
+
+	rewrite ^/redirect_me https://example.com/ permanent;
+
+	error_page 404 /404.html;
+
+	location = /404.html {
+		internal;
+	}
+	
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
